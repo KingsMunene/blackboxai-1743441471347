@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+    <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl p-8 w-full max-w-2xl transform transition-all duration-300">
+        <div class="text-center mb-8">
+            <i class="fas fa-exclamation-triangle text-6xl text-red-500 mb-4"></i>
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Oops! Something went wrong</h1>
+            <p class="text-xl text-gray-600">{{ message }}</p>
+        </div>
+        
+        {% if error %}
+        <div class="mb-6 bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
+            <details>
+                <summary class="font-medium text-gray-700 cursor-pointer">
+                    <i class="fas fa-code mr-2"></i>Technical Details
+                </summary>
+                <pre class="mt-2 text-sm text-gray-600 overflow-x-auto p-2 bg-gray-100 rounded">{{ error.stack }}</pre>
+            </details>
+        </div>
+        {% endif %}
+
+        <div class="flex justify-center">
+            <a href="/" 
+               class="inline-flex items-center bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                <i class="fas fa-home mr-2"></i>
+                Return to Home
+            </a>
+        </div>
+
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>If the problem persists, please contact support</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
